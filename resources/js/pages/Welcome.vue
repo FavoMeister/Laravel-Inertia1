@@ -118,7 +118,7 @@ import { Head, Link } from '@inertiajs/vue3';
                         </li>
                     </ul>
                 </div>
-                <div
+                <!-- <div
                     class="relative -mb-px aspect-335/376 w-full shrink-0 overflow-hidden rounded-t-lg bg-[#fff2f2] lg:mb-0 lg:-ml-px lg:aspect-auto lg:w-[438px] lg:rounded-t-none lg:rounded-r-lg dark:bg-[#1D0002]"
                 >
                     <svg
@@ -779,7 +779,7 @@ import { Head, Link } from '@inertiajs/vue3';
                     <div
                         class="absolute inset-0 rounded-t-lg shadow-[inset_0px_0px_0px_1px_rgba(26,26,0,0.16)] lg:overflow-hidden lg:rounded-t-none lg:rounded-r-lg dark:shadow-[inset_0px_0px_0px_1px_#fffaed2d]"
                     />
-                </div>
+                </div> -->
             </main>
         </div>
         <div class="hidden h-14.5 lg:block"></div>
