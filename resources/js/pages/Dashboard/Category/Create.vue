@@ -5,6 +5,12 @@
         <label for="">Slug</label>
         <input type="text" v-model="form.slug">
 
+        <div>
+            {{ errors }}
+        </div>
+
+        <!-- {{ form.errors }} -->
+
         <button type="submit" class="btn btn-primary">Send</button>
     </form>
 </template>
@@ -14,6 +20,9 @@ import { useForm } from '@inertiajs/vue3';
 
 
 export default {
+    props: {
+        errors: Object
+    },
     setup() {
         const form = useForm({
             title: '',
