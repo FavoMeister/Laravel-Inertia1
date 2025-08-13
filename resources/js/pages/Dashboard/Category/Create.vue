@@ -5,7 +5,7 @@
         <label for="">Slug</label>
         <input type="text" v-model="form.slug">
 
-        <button type="submit">Send</button>
+        <button type="submit" class="btn btn-primary">Send</button>
     </form>
 </template>
 
@@ -17,16 +17,19 @@ export default {
     setup() {
         const form = useForm({
             title: '',
-            slug:''
+            slug: ''
         })
+
         function submit() {
-            console.log(this.form);
-            
+            console.log(form);
+            form.post(route('category.store', form));
+            // router.post(route('category.store', form))
         }
+
         return {
+            form,
             submit
-        };
+        }
     }
 }
-
 </script>
