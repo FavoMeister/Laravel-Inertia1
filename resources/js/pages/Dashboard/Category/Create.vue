@@ -1,31 +1,32 @@
 <template>
-    <AppLayout>
-        
+    <AppLayout :breadcrumbs="breadcrumbs">
         <div class="px-4 py-6 max-w-xl">
-            <HeadingSmall title="Category information" description="Create new categories" />
-            <form class="space-y-6" @submit.prevent="submit">
+            <HeadingSmall title="Category Creation" description="Create a new category" />
+            <form class="my-6" @submit.prevent="submit">
                 <div class="grid gap-2">
-                <Label>Title</Label>
-                <!-- <input type="text" v-model="form.title"> -->
-                <Input type="text" v-model="form.title" placeholder="Title" required></Input>
-                <!-- <div v-if="errors.title">
-                    {{ errors.title }}
-                </div> -->
-                <InputError :message="errors.title"></InputError>
+                    <Label>Title</Label>
+                    <!-- <input type="text" v-model="form.title"> -->
+                    <div>
+                        <Input type="text" v-model="form.title" placeholder="Title" required></Input>
+                        <!-- <div v-if="errors.title">
+                            {{ errors.title }}
+                        </div> -->
+                        <InputError :message="errors.title"></InputError>
+                    </div>
+                    <Label for="">Slug</Label>
+                    <div>
+                        <!-- <input type="text" v-model="form.slug"> -->
+                        <Input type="text" v-model="form.slug" placeholder="Slug" required />
+                        <!-- <div v-if="errors.slug">
+                            {{ errors.slug }}
+                        </div> -->
+                        <InputError :message="errors.slug"></InputError>
+                    </div>
 
-                <Label for="">Slug</Label>
-                <!-- <input type="text" v-model="form.slug"> -->
-                <Input type="text" v-model="form.slug" placeholder="Slug" required />
-                <!-- <div v-if="errors.slug">
-                    {{ errors.slug }}
-                </div> -->
-                <InputError :message="errors.slug"></InputError>
+                    <!-- {{ form.errors }} -->
 
-
-                <!-- {{ form.errors }} -->
-
-                <!-- <button type="submit" class="btn btn-primary">Send</button> -->
-                <Button :disabled="form.processing" type="submit">Send</Button>
+                    <!-- <button type="submit" class="btn btn-primary">Send</button> -->
+                    <Button :disabled="form.processing" type="submit">Create</Button>
                 </div>
             </form>
         </div>
@@ -62,7 +63,14 @@ export default {
         const form = useForm({
             title: '',
             slug: ''
-        })
+        });
+
+        const breadcrumbs = [
+            {
+                title: 'Categories',
+                // href: '/dashboard/category/create'
+            }
+        ];
 
         function submit() {
             console.log(form);
@@ -72,7 +80,8 @@ export default {
 
         return {
             form,
-            submit
+            submit,
+            breadcrumbs
         }
     }
 }
