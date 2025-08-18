@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Put;
 use App\Http\Requests\Store;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -45,17 +46,17 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Category $category)
     {
-        //
+        return inertia("Dashboard/Category/Edit", compact('category'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Put $request, Category $category)
     {
-        //
+        $category->update($request->validated());
     }
 
     /**
